@@ -2,13 +2,21 @@ import './Corridor.css';
 
 import React from 'react';
 import Wall from '../Wall/Wall';
+import usePositionXY from '../../hooks/usePositionXY';
 import usePositionZ from '../../hooks/usePositionZ';
 
 const Corridor = () => {
   let position = usePositionZ();
+  let perspectiveOrigin = usePositionXY();
 
   return (
-    <div id="cube" className="cube">
+    <div
+      id="cube"
+      className="cube"
+      style={{
+        perspectiveOrigin: `${perspectiveOrigin.x}% ${perspectiveOrigin.y}%`,
+      }}
+    >
       <div
         className="cube-faces"
         style={{

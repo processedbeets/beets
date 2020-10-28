@@ -1,26 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+import Header from './components/Header';
+import React from 'react';
+import usePositionZ from './hooks/usePositionZ';
+
+const App = () => {
+  let position = usePositionZ();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      {/* <section className="content"></section>
+      <Header title="beets">{<Detail content="dot" /> }</Header> */}
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div id="cube" className="cube">
+        <div
+          className="cube-faces"
+          style={{
+            transform: `translateZ(${position}px)`,
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          <span className="cube-face cube-face--front"></span>
+          <span className="cube-face cube-face--back">
+            <h1 className="email">david@beets.design</h1>
+          </span>
+          <span className="cube-face cube-face--back back-1">
+            <h1>test stuff</h1>
+          </span>
+          <span className="cube-face cube-face--back back-2">
+            <Header title="portfolio" />
+            {/* <h1>other stuff</h1> */}
+          </span>
+          <span className="cube-face cube-face--top"></span>
+          <span className="cube-face cube-face--bottom"></span>
+          <span className="cube-face cube-face--left"></span>
+          <span className="cube-face cube-face--right"></span>
+        </div>
+      </div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
   );
-}
+};
 
 export default App;

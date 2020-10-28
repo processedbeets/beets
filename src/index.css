@@ -21,8 +21,8 @@ body {
   text-transform: uppercase;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100vh;
-  display: grid;
+  /* height: 100vh;
+  display: grid; */
   /* align-items: center; */
   background-color: var(--background);
   color: white;
@@ -119,108 +119,4 @@ h1:hover {
   100% {
     text-shadow: var(--text-highlight-half);
   }
-}
-
-.cube {
-  perspective: 1rem;
-  perspective-origin: 50% 50%;
-}
-
-.cube-faces {
-  position: relative;
-  margin: 100px auto;
-  width: 200px;
-  height: 200px;
-  transform-style: preserve-3d;
-  transform: translateZ(112px);
-}
-
-.cube-face {
-  opacity: 0.3;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  width: 200px;
-  height: 200px;
-  /* background-color: rgba(#377cff, 0.3); */
-  /* box-shadow: inset 0 0 0 2px #fff; */
-  /* border: 2px dashed white; */
-  border: 2px dotted white;
-}
-
-.cube-face--front {
-  transform: translateZ(100px);
-  border-style: solid;
-  background: aquamarine;
-}
-
-.cube-face--back {
-  opacity: 0.6;
-  transform: translateZ(-100px);
-  /* background: lavenderblush; */
-  background: linear-gradient(
-    180deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(62, 9, 121, 1) 35%,
-    rgba(0, 212, 255, 1) 100%
-  );
-  border: none;
-}
-
-.back-1 {
-  opacity: 0.6;
-  transform: translateZ(-10px);
-  /* background: lavenderblush; */
-  background: linear-gradient(
-    180deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(62, 9, 121, 1) 35%,
-    rgba(0, 212, 255, 1) 100%
-  );
-  border: none;
-}
-
-.back-2 {
-  opacity: 0.6;
-  transform: translateZ(-50px);
-  /* background: lavenderblush; */
-  background: linear-gradient(
-    180deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(62, 9, 121, 1) 35%,
-    rgba(0, 212, 255, 1) 100%
-  );
-  border: none;
-}
-
-.email {
-  text-transform: lowercase;
-  margin: 70px;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  text-align: left;
-}
-
-.cube-face--left {
-  transform: translateX(-100px) rotateY(-90deg);
-  border-right: none;
-  background: black;
-}
-
-.cube-face--right {
-  transform: translateX(100px) rotateY(90deg);
-  border-left: none;
-  background: black;
-}
-
-.cube-face--top {
-  transform: translateY(-100px) rotateX(90deg);
-  border: none;
-}
-
-.cube-face--bottom {
-  transform: translateY(100px) rotateX(-90deg);
-  border: none;
-  background-color: aquamarine;
 }

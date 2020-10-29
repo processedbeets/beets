@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 const usePositionXY = () => {
   let [perspectiveOrigin, setPerspectiveOrigin] = useState({ x: 50, y: 50 });
-  let maxGap = 0.1;
+  const maxGap = 0.1;
   const min = 45;
   const max = 55;
 

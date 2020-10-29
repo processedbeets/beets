@@ -1,36 +1,59 @@
-import './Corridor.css';
+import './Corridor.scss';
 
+import RoomContent, { HangPosition } from '../RoomContent/RoomContent';
+
+import Door from '../Door/Door';
 import React from 'react';
-import Wall from '../Wall/Wall';
-import usePositionXY from '../../hooks/usePositionXY';
+import angular from '../../images/angular.svg';
+import react from '../../images/react.svg';
+import rxjs from '../../images/rxjs.svg';
+import sass from '../../images/sass.svg';
+import typescript from '../../images/typescript.svg';
 import usePositionZ from '../../hooks/usePositionZ';
 
 const Corridor = () => {
   let position = usePositionZ();
-  let perspectiveOrigin = usePositionXY();
+  //   let perspectiveOrigin = usePositionXY();
+  let perspectiveOrigin = { x: 50, y: 50 };
 
   return (
     <div
-      id="cube"
-      className="cube"
+      className="corridor"
       style={{
         perspectiveOrigin: `${perspectiveOrigin.x}% ${perspectiveOrigin.y}%`,
       }}
     >
       <div
-        className="cube-faces"
+        className="corridor__walls"
         style={{
           transform: `translateZ(${position}px)`,
         }}
       >
-        <span className="cube-face cube-face--front"></span>
-        <Wall title="david@beets.design" position="-100" />
-        <Wall title="Test Stuff" position="-50" />
-        <Wall title="Portfolio" position="-10" />
-        <span className="cube-face cube-face--top"></span>
-        <span className="cube-face cube-face--bottom"></span>
-        <span className="cube-face cube-face--left"></span>
-        <span className="cube-face cube-face--right"></span>
+        <span className="corridor__walls__wall--front"></span>
+        <Door title="Profile" position="100" />
+        <Door title="Technologies" position="50" />
+        <RoomContent title="React" position="45" hang={HangPosition.LEFT}>
+          <img src={react} alt="three blue eliptical circles with dot in centre" />
+        </RoomContent>
+        <RoomContent title="Angular" position="40" hang={HangPosition.RIGHT}>
+          <img src={angular} alt="red shield with letter A in the centre" />
+        </RoomContent>
+        <RoomContent title="Typescript" position="35" hang={HangPosition.LEFT}>
+          <img src={typescript} alt="a square with the letters T S in the corner" />
+        </RoomContent>
+        <RoomContent title="Sass" position="30" hang={HangPosition.RIGHT}>
+          <img src={sass} alt="The word 'sass' in a serif font" />
+        </RoomContent>
+        <RoomContent title="RxJs" position="25" hang={HangPosition.LEFT}>
+          <img src={rxjs} alt="A purple dragon circling back on itself forming a complete circle" />
+        </RoomContent>
+        <Door title="Education" position="0" />
+        <Door title="Employment" position="-50" />
+        <Door title="david@beets.design" position="-100" />
+        <span className="corridor__walls__wall--top"></span>
+        <span className="corridor__walls__wall--bottom"></span>
+        <span className="corridor__walls__wall--left"></span>
+        <span className="corridor__walls__wall--right"></span>
       </div>
     </div>
   );

@@ -1,0 +1,67 @@
+@import '../../styles/settings/settings.scss';
+
+$width: 200px;
+$height: 200px;
+$floor-colour: #7fffd4;
+$wall-colour: #000;
+
+%wall {
+  opacity: 0.3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: $width;
+  height: $height;
+  border: 2px dotted $foreground;
+}
+
+.corridor {
+  // perspective: 1rem;
+
+  /* currently 17px is a magic number - fixes perspective issues on Edge & Chrome - flashing walls. Could be related to scroll bar appearing halfway down corridor on those browsers */
+  perspective: 17px;
+  perspective-origin: 50% 50%;
+
+  &__walls {
+    position: relative;
+    margin: $width/2 auto;
+    width: $width;
+    height: $height;
+    transform-style: preserve-3d;
+
+    &__wall--front {
+      @extend %wall;
+      transform: translateZ($width/2);
+      border-style: solid;
+      background-color: $floor-colour;
+    }
+
+    &__wall--left {
+      @extend %wall;
+      transform: translateX(-$width/2) rotateY(-90deg);
+      border-right: none;
+      background-color: $wall-colour;
+    }
+
+    &__wall--right {
+      @extend %wall;
+      transform: translateX($width/2) rotateY(90deg);
+      border-left: none;
+      background-color: $wall-colour;
+    }
+
+    &__wall--top {
+      @extend %wall;
+      transform: translateY(-$height/2) rotateX(90deg);
+      border: none;
+    }
+
+    &__wall--bottom {
+      @extend %wall;
+      transform: translateY($height/2) rotateX(-90deg);
+      border: none;
+      background-color: $floor-colour;
+    }
+  }
+}

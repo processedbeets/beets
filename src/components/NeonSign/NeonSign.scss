@@ -1,0 +1,72 @@
+$white: white;
+$text-highlight: 1px 1px 1px $white, 0 0 0.5em rgb(255, 224, 224), 0 0 0 $white;
+$text-highlight-full: 1px 1px 2px $white, 0 0 1em rgb(255, 224, 224), 0 0 0.2em $white;
+$text-highlight-half: 1px 1px 2px $white, 0 0 1em rgb(255, 224, 224), 0 0 0.2em rgb(145, 145, 145);
+
+h1 {
+  text-shadow: $text-highlight;
+  justify-content: flex-end;
+  width: 100%;
+  font-size: 6rem;
+  animation: neon 4s infinite ease-in-out;
+}
+
+h1:hover {
+  cursor: pointer;
+  text-decoration: overline;
+  animation: neon 4s infinite ease-in-out;
+}
+
+@keyframes neon {
+  0% {
+    text-shadow: $text-highlight-half;
+  }
+  9% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0.1;
+  }
+  11% {
+    opacity: 1;
+  }
+  25% {
+    text-shadow: $text-highlight-full;
+  }
+  50% {
+    text-shadow: $text-highlight-half;
+  }
+  65% {
+    opacity: 1;
+  }
+  66% {
+    opacity: 0.3;
+  }
+  68% {
+    opacity: 1;
+  }
+  75% {
+    text-shadow: $text-highlight-full;
+  }
+  85% {
+    opacity: 1;
+  }
+  86% {
+    opacity: 0.6;
+  }
+  88% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  93% {
+    opacity: 0.7;
+  }
+  94% {
+    opacity: 1;
+  }
+  100% {
+    text-shadow: $text-highlight-half;
+  }
+}

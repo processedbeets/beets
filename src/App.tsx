@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 
 import Corridor from './components/Corridor/Corridor';
 import React from 'react';

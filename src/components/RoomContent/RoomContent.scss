@@ -1,0 +1,24 @@
+@import '../Corridor/Corridor.scss';
+
+.room-content {
+  @extend %wall;
+  opacity: 0.9;
+  // background: radial-gradient(#020024, #a58fbe 37.82%, #00d4ff);
+  border: none;
+  display: flex;
+  justify-content: flex-end;
+
+  &__sign {
+    width: 40%;
+    height: 50%;
+  }
+
+  h2 {
+    position: relative;
+    top: 0.4rem;
+    font-size: 0.3rem;
+    margin: 0;
+    text-decoration: overline;
+    animation: neon 4s infinite ease-in-out;
+  }
+}

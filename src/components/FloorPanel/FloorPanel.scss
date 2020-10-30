@@ -1,15 +1,55 @@
+$floorPanelText: #373737;
+$titleText: white;
+$titleBackground: rgba(105, 105, 105, 0.8);
+
 .floor-panel {
-  color: rgb(45, 45, 45);
-  background: rgb(221, 221, 221);
+  color: $floorPanelText;
   opacity: 1;
   padding: 4px;
   font-size: 0.8rem;
   align-self: flex-end;
   justify-self: center;
   display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   border-radius: 2px;
   align-items: flex-end;
-  text-align: right;
   width: 40%;
   height: 60%;
+  text-transform: capitalize;
+
+  %title {
+    background: $titleBackground;
+    padding: 1px 6px;
+    align-self: flex-start;
+    color: $titleText;
+    align-self: center;
+    width: 100%;
+  }
+
+  &__title--left {
+    @extend %title;
+    text-align: left;
+    margin-left: -10px;
+  }
+
+  &__title--right {
+    @extend %title;
+    text-align: right;
+    margin-right: -10px;
+  }
+
+  %content {
+    width: 100%;
+  }
+
+  &__content--left {
+    @extend %content;
+    text-align: left;
+  }
+
+  &__content--right {
+    @extend %content;
+    text-align: right;
+  }
 }

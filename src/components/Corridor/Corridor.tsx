@@ -36,7 +36,23 @@ const Corridor = () => {
         <span className="corridor__walls__wall--front"></span>
         <Door title="Profile" position="100" />
         <RoomContent position="95" hang={HangPosition.RIGHT}>
-          <FloorPanel hang={HangPosition.RIGHT} text="15+ years industry experience" />
+          <FloorPanel hang={HangPosition.RIGHT} title="15+ years" text="industry experience" />
+        </RoomContent>
+        <RoomContent position="90" hang={HangPosition.LEFT}>
+          <FloorPanel hang={HangPosition.LEFT} title="2+ years" text="React" />
+        </RoomContent>
+        <RoomContent position="85" hang={HangPosition.RIGHT}>
+          <FloorPanel hang={HangPosition.RIGHT} title="6+ years" text="Angular" />
+        </RoomContent>
+        <RoomContent position="80" hang={HangPosition.LEFT}>
+          <FloorPanel hang={HangPosition.LEFT} title="6+ years" text="Typescript" />
+        </RoomContent>
+        <RoomContent position="75" hang={HangPosition.RIGHT}>
+          <FloorPanel
+            hang={HangPosition.RIGHT}
+            title="Microsoft Certified"
+            text="Software Engineer"
+          />
         </RoomContent>
         <Door title="Technologies" position="50" />
         <RoomContent position="45" hang={HangPosition.LEFT}>

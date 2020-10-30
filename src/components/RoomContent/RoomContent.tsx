@@ -9,7 +9,7 @@ export enum HangPosition {
 }
 
 export type RoomContentType = {
-  title: string;
+  title?: string;
   position: string;
   hang: HangPosition;
   children?: React.ReactNode;
@@ -24,10 +24,11 @@ const RoomContent = ({ title, position, hang, children }: RoomContentType) => {
         justifyContent: `${hang}`,
       }}
     >
-      <span className="room-content__sign">
+      {children}
+      {/* <span className="room-content__sign">
         <h2>{title}</h2>
         {children}
-      </span>
+      </span> */}
     </span>
   );
 };

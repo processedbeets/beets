@@ -3,7 +3,9 @@ import './Corridor.scss';
 import RoomContent, { HangPosition } from '../RoomContent/RoomContent';
 
 import Door from '../Door/Door';
+import FloorPanel from '../FloorPanel/FloorPanel';
 import React from 'react';
+import Sign from '../Sign/Sign';
 import angular from '../../images/angular.svg';
 import ngrx from '../../images/ngrx.svg';
 import react from '../../images/react.svg';
@@ -33,30 +35,50 @@ const Corridor = () => {
       >
         <span className="corridor__walls__wall--front"></span>
         <Door title="Profile" position="100" />
+        <RoomContent position="95" hang={HangPosition.RIGHT}>
+          <FloorPanel hang={HangPosition.RIGHT} text="15+ years industry experience" />
+        </RoomContent>
         <Door title="Technologies" position="50" />
-        <RoomContent title="React" position="45" hang={HangPosition.LEFT}>
-          <img src={react} alt="three blue eliptical circles with dot in centre" />
+        <RoomContent position="45" hang={HangPosition.LEFT}>
+          <Sign title="React">
+            <img src={react} alt="three blue eliptical circles with dot in centre" />
+          </Sign>
         </RoomContent>
-        <RoomContent title="Redux" position="40" hang={HangPosition.RIGHT}>
-          <img src={redux} alt="Purple celtic knot shape" />
+        <RoomContent position="40" hang={HangPosition.RIGHT}>
+          <Sign title="Redux">
+            <img src={redux} alt="Purple celtic knot shape" />
+          </Sign>
         </RoomContent>
-        <RoomContent title="Angular" position="35" hang={HangPosition.LEFT}>
-          <img src={angular} alt="red shield with letter A in the centre" />
+        <RoomContent position="35" hang={HangPosition.LEFT}>
+          <Sign title="Angular">
+            <img src={angular} alt="red shield with letter A in the centre" />
+          </Sign>
         </RoomContent>
-        <RoomContent title="Typescript" position="30" hang={HangPosition.RIGHT}>
-          <img src={typescript} alt="a square with the letters T S in the corner" />
+        <RoomContent position="30" hang={HangPosition.RIGHT}>
+          <Sign title="Typescript">
+            <img src={typescript} alt="a square with the letters T S in the corner" />
+          </Sign>
         </RoomContent>
-        <RoomContent title="Sass" position="25" hang={HangPosition.LEFT}>
-          <img src={sass} alt="The word 'sass' in a serif font" />
+        <RoomContent position="25" hang={HangPosition.LEFT}>
+          <Sign title="Sass">
+            <img src={sass} alt="The word 'sass' in a serif font" />
+          </Sign>
         </RoomContent>
-        <RoomContent title="RxJs" position="20" hang={HangPosition.RIGHT}>
-          <img src={rxjs} alt="A purple dragon circling back on itself forming a complete circle" />
+        <RoomContent position="20" hang={HangPosition.RIGHT}>
+          <Sign title="RxJs">
+            <img
+              src={rxjs}
+              alt="A purple dragon circling back on itself forming a complete circle"
+            />
+          </Sign>
         </RoomContent>
-        <RoomContent title="NgRx" position="15" hang={HangPosition.LEFT}>
-          <img
-            src={ngrx}
-            alt="A purple dragon circling back on itself in front of a black shield"
-          />
+        <RoomContent position="15" hang={HangPosition.LEFT}>
+          <Sign title="NgRx">
+            <img
+              src={ngrx}
+              alt="A purple dragon circling back on itself in front of a black shield"
+            />
+          </Sign>
         </RoomContent>
         <Door title="Education" position="0" />
         <Door title="Employment" position="-50" />

@@ -1,6 +1,6 @@
 import './Door.scss';
 
-import NeonSign from '../NeonSign/NeonSign';
+import NeonText from '../NeonText/NeonText';
 import React from 'react';
 
 export type DoorType = {
@@ -18,7 +18,7 @@ const Door = ({ title, position, children }: DoorType) => {
         transform: `translateZ(${position}px)`,
       }}
     >
-      <NeonSign title={title}></NeonSign>
+      <NeonText title={title}></NeonText>
       {children}
     </span>
   );

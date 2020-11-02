@@ -1,7 +1,8 @@
 import './FloorPanel.scss';
 
+import React, { useRef } from 'react';
+
 import { HangPosition } from '../RoomContent/RoomContent';
-import React from 'react';
 
 export type FloorPositionType = {
   hang: HangPosition;
@@ -16,11 +17,10 @@ const blue = 'rgba(137, 154, 210, 0.61)';
 const yellow = 'rgba(231, 225, 152, 0.61)';
 
 const colours = [red, purple, green, blue, yellow];
-const random = Math.floor(Math.random() * colours.length);
 
 const FloorPanel = ({ hang, title, text }: FloorPositionType) => {
-  const textAlign = hang === HangPosition.LEFT ? 'left' : 'right';
-  const backgroundColour = colours[random];
+  const random = useRef(Math.floor(Math.random() * colours.length));
+  const backgroundColour = colours[random.current];
 
   return (
     <span style={{ background: backgroundColour }} className="floor-panel">

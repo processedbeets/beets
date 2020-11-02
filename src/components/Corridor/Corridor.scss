@@ -4,6 +4,7 @@ $width: 200px;
 $height: 200px;
 $floor-colour: #7fffd4;
 $wall-colour: #000;
+$ceiling-colour: aliceblue;
 
 %wall {
   opacity: 0.3;
@@ -32,34 +33,39 @@ $wall-colour: #000;
 
     &__wall--front {
       @extend %wall;
-      transform: translateZ($width/2);
-      border-style: solid;
+      transform: translateZ($width);
+      border-style: none;
       background-color: $floor-colour;
     }
 
     &__wall--left {
       @extend %wall;
-      transform: translateX(-$width/2) rotateY(-90deg);
+      transform: translateX(-$width) rotateY(-90deg);
+      width: $width * 2;
       border-right: none;
       background-color: $wall-colour;
     }
 
     &__wall--right {
       @extend %wall;
-      transform: translateX($width/2) rotateY(90deg);
+      transform: translateX(0) rotateY(90deg);
+      width: $width * 2;
       border-left: none;
       background-color: $wall-colour;
     }
 
     &__wall--top {
       @extend %wall;
-      transform: translateY(-$height/2) rotateX(90deg);
+      height: $height * 2;
+      transform: translateY(-$height) rotateX(90deg);
       border: none;
+      background-color: $ceiling-colour;
     }
 
     &__wall--bottom {
       @extend %wall;
-      transform: translateY($height/2) rotateX(-90deg);
+      height: $height * 2;
+      transform: translateY(0) rotateX(-90deg);
       border: none;
       background-color: $floor-colour;
     }

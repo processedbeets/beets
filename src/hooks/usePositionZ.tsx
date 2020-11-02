@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 const usePositionZ = () => {
-  let [position, setPosition] = useState(-100);
+  let [position, setPosition] = useState(-200);
 
   useEffect(() => {
     const listener = (event: any) => {

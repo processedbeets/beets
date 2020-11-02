@@ -1,15 +1,18 @@
 @import '../Corridor/Corridor.scss';
 @import '../NeonText/NeonText.scss';
 
+$door-colour: rgba(182, 41, 129, 0.59);
+
 .door {
   @extend %wall;
   opacity: 0.6;
-  background: linear-gradient(
-    180deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(62, 9, 121, 1) 35%,
-    rgba(0, 212, 255, 1) 100%
-  );
+  // background: linear-gradient(
+  //   180deg,
+  //   rgba(2, 0, 36, 1) 0%,
+  //   rgba(62, 9, 121, 1) 35%,
+  //   rgba(0, 212, 255, 1) 100%
+  // );
+  background-color: $door-colour;
   border: none;
 
   h1 {

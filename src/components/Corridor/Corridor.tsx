@@ -19,6 +19,10 @@ const Corridor = () => {
   let position = usePositionZ();
   //   let perspectiveOrigin = usePositionXY();
   let perspectiveOrigin = { x: 50, y: 50 };
+  const length = 400;
+  const numberOfPanels = 20;
+  const panelGap = length / numberOfPanels;
+  const startPosition = 200;
 
   return (
     <div
@@ -34,7 +38,12 @@ const Corridor = () => {
         }}
       >
         <span className="corridor__walls__wall--front"></span>
-        <Door title="Profile" position="100" />
+        <span className="corridor__walls__wall--top"></span>
+        <span className="corridor__walls__wall--bottom"></span>
+        <span className="corridor__walls__wall--left"></span>
+        <span className="corridor__walls__wall--right"></span>
+        <span className="corridor__walls__wall--back"></span>
+        <Door title="Profile" position={startPosition} />
         <RoomContent position="95" hang={HangPosition.RIGHT}>
           <FloorPanel hang={HangPosition.RIGHT} title="15+ years" text="industry experience" />
         </RoomContent>
@@ -99,10 +108,6 @@ const Corridor = () => {
         <Door title="Education" position="0" />
         <Door title="Employment" position="-50" />
         <Door title="david@beets.design" position="-100" />
-        <span className="corridor__walls__wall--top"></span>
-        <span className="corridor__walls__wall--bottom"></span>
-        <span className="corridor__walls__wall--left"></span>
-        <span className="corridor__walls__wall--right"></span>
       </div>
     </div>
   );

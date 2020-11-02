@@ -5,7 +5,7 @@ import React from 'react';
 
 export type DoorType = {
   title: string;
-  position: string;
+  position: number | string;
   content?: string;
   children?: React.ReactNode;
 };

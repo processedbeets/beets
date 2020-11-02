@@ -5,6 +5,7 @@ $height: 200px;
 $floor-colour: #7fffd4;
 $wall-colour: #000;
 $ceiling-colour: aliceblue;
+$back-colour: rgb(255, 0, 190);
 
 %wall {
   opacity: 0.3;
@@ -36,6 +37,13 @@ $ceiling-colour: aliceblue;
       transform: translateZ($width);
       border-style: none;
       background-color: $floor-colour;
+    }
+
+    &__wall--back {
+      @extend %wall;
+      transform: translateZ(-$width);
+      border-style: none;
+      background-color: $back-colour;
     }
 
     &__wall--left {

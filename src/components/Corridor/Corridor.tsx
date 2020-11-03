@@ -1,12 +1,13 @@
 import './Corridor.scss';
 
+import React, { useEffect, useState } from 'react';
 import RoomContent, { HangPosition } from '../RoomContent/RoomContent';
 
 import Door from '../Door/Door';
 import FloorPanel from '../FloorPanel/FloorPanel';
-import React from 'react';
 import Sign from '../Sign/Sign';
 import angular from '../../images/angular.svg';
+import axios from 'axios';
 import ngrx from '../../images/ngrx.svg';
 import react from '../../images/react.svg';
 import redux from '../../images/redux.svg';
@@ -15,7 +16,19 @@ import sass from '../../images/sass.svg';
 import typescript from '../../images/typescript.svg';
 import usePositionZ from '../../hooks/usePositionZ';
 
+type RecordType = {
+  id: string;
+};
+
 const Corridor = () => {
+  const [records, setRecords] = useState([]);
+
+  useEffect(() => {
+    axios.get('/api/records').then(({ data }) => {
+      setRecords(data);
+    });
+  }, []);
+
   let position = usePositionZ();
   //   let perspectiveOrigin = usePositionXY();
   let perspectiveOrigin = { x: 50, y: 50 };
@@ -31,6 +44,9 @@ const Corridor = () => {
         perspectiveOrigin: `${perspectiveOrigin.x}% ${perspectiveOrigin.y}%`,
       }}
     >
+      {records.map((record: RecordType) => (
+        <li key={record.id.toString()}>record.id</li>
+      ))}
       <div
         className="corridor__walls"
         style={{

@@ -33,8 +33,73 @@ let profiles = [
   },
 ];
 
+const education = [
+   {
+    id: '1',
+    title: '15+ years',
+    subHeading: 'industry experience',
+  },
+  {
+    id: '2',
+    title: '2+ years',
+    subHeading: 'React',
+  },
+  {
+    id: '3',
+    title: '6+ years',
+    subHeading: 'Angular',
+  },
+  {
+    id: '4',
+    title: '6+ years',
+    subHeading: 'Typescript',
+  },
+  {
+    id: '5',
+    title: 'Microsoft Certified',
+    subHeading: 'Software Engineer',
+  },
+]
+
+const jobs = [
+   {
+    id: '1',
+    title: '15+ years',
+    subHeading: 'industry experience',
+  },
+  {
+    id: '2',
+    title: '2+ years',
+    subHeading: 'React',
+  },
+  {
+    id: '3',
+    title: '6+ years',
+    subHeading: 'Angular',
+  },
+  {
+    id: '4',
+    title: '6+ years',
+    subHeading: 'Typescript',
+  },
+  {
+    id: '5',
+    title: 'Microsoft Certified',
+    subHeading: 'Software Engineer',
+  },
+]
+
+
 app.get('/api/profiles', (req, res) => {
   res.send(profiles);
 });
+
+app.get('/api/education', (req, res) => {
+  res.send(education);
+})
+
+app.get('/api/jobs', (req, res) => {
+  res.send(jobs);
+})
 
 app.listen(port, () => console.log(`Server listening on port ${port}`));

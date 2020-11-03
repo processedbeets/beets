@@ -7,6 +7,7 @@ import Door from '../Door/Door';
 import FloorPanel from '../FloorPanel/FloorPanel';
 import { FloorPanelType } from '../../types/FloorPanelType';
 import Sign from '../Sign/Sign';
+import { TechnologyType } from '../../types/Technology';
 import angular from '../../images/angular.svg';
 import axios from 'axios';
 import ngrx from '../../images/ngrx.svg';
@@ -17,12 +18,64 @@ import sass from '../../images/sass.svg';
 import typescript from '../../images/typescript.svg';
 import usePositionZ from '../../hooks/usePositionZ';
 
+const technologies: TechnologyType[] = [
+  {
+    id: 1,
+    title: 'react',
+    image: react,
+    altText: 'three blue eliptical circles with dot in centre',
+  },
+  {
+    id: 2,
+    title: 'redux',
+    image: redux,
+    altText: 'Purple celtic knot shape',
+  },
+  {
+    id: 3,
+    title: 'angular',
+    image: angular,
+    altText: 'red shield with letter A in the centre',
+  },
+  {
+    id: 4,
+    title: 'typescript',
+    image: typescript,
+    altText: 'a square with the letters T S in the corner',
+  },
+  {
+    id: 5,
+    title: 'sass',
+    image: sass,
+    altText: 'The word "sass" in a serif font',
+  },
+  {
+    id: 6,
+    title: 'rxjs',
+    image: rxjs,
+    altText: 'A purple dragon circling back on itself forming a complete circle',
+  },
+  {
+    id: 7,
+    title: 'ngrx',
+    image: ngrx,
+    altText: 'A purple dragon circling back on itself in front of a black shield',
+  },
+];
+
 const Corridor = () => {
   const [profiles, setProfiles] = useState([]);
+  const [education, setEducation] = useState([]);
 
   useEffect(() => {
     axios.get('/api/profiles').then(({ data }) => {
       setProfiles(data);
+    });
+  }, []);
+
+  useEffect(() => {
+    axios.get('/api/education').then(({ data }) => {
+      setEducation(data);
     });
   }, []);
 
@@ -55,6 +108,8 @@ const Corridor = () => {
         <span className="corridor__walls__wall--left"></span>
         <span className="corridor__walls__wall--right"></span>
         <span className="corridor__walls__wall--back"></span>
+
+        {/* Profiles */}
         <Door title="Profile" position={currentPosition} />
         {profiles.map((floorPanel: FloorPanelType) => {
           currentPosition = currentPosition - panelGap;
@@ -73,51 +128,52 @@ const Corridor = () => {
             </RoomContent>
           );
         })}
-        <Door title="Technologies" position="50" />
-        <RoomContent position="45" hang={HangPosition.LEFT}>
-          <Sign title="React">
-            <img src={react} alt="three blue eliptical circles with dot in centre" />
-          </Sign>
-        </RoomContent>
-        <RoomContent position="40" hang={HangPosition.RIGHT}>
-          <Sign title="Redux">
-            <img src={redux} alt="Purple celtic knot shape" />
-          </Sign>
-        </RoomContent>
-        <RoomContent position="35" hang={HangPosition.LEFT}>
-          <Sign title="Angular">
-            <img src={angular} alt="red shield with letter A in the centre" />
-          </Sign>
-        </RoomContent>
-        <RoomContent position="30" hang={HangPosition.RIGHT}>
-          <Sign title="Typescript">
-            <img src={typescript} alt="a square with the letters T S in the corner" />
-          </Sign>
-        </RoomContent>
-        <RoomContent position="25" hang={HangPosition.LEFT}>
-          <Sign title="Sass">
-            <img src={sass} alt="The word 'sass' in a serif font" />
-          </Sign>
-        </RoomContent>
-        <RoomContent position="20" hang={HangPosition.RIGHT}>
-          <Sign title="RxJs">
-            <img
-              src={rxjs}
-              alt="A purple dragon circling back on itself forming a complete circle"
-            />
-          </Sign>
-        </RoomContent>
-        <RoomContent position="15" hang={HangPosition.LEFT}>
-          <Sign title="NgRx">
-            <img
-              src={ngrx}
-              alt="A purple dragon circling back on itself in front of a black shield"
-            />
-          </Sign>
-        </RoomContent>
-        <Door title="Education" position="0" />
-        <Door title="Employment" position="-50" />
-        <Door title="david@beets.design" position="-100" />
+
+        {/* Technologies */}
+        <Door title="Technologies" position={currentPosition} />
+        {technologies.map((technolgy: TechnologyType) => {
+          currentPosition = currentPosition - panelGap;
+          orientation = orientation === HangPosition.RIGHT ? HangPosition.LEFT : HangPosition.RIGHT;
+          return (
+            <RoomContent position={currentPosition} hang={orientation}>
+              <Sign title={technolgy.title}>
+                <img src={technolgy.image} alt={technolgy.altText} />
+              </Sign>
+            </RoomContent>
+          );
+        })}
+
+        {/* Education */}
+        <Door title="Education" position={currentPosition} />
+        {education.map((attribute: FloorPanelType) => {
+          currentPosition = currentPosition - panelGap;
+          orientation = orientation === HangPosition.RIGHT ? HangPosition.LEFT : HangPosition.RIGHT;
+          return (
+            <RoomContent
+              key={attribute.id.toString()}
+              position={currentPosition}
+              hang={orientation}
+            >
+              <FloorPanel
+                hang={orientation}
+                title={attribute.title}
+                subHeading={attribute.subHeading}
+              />
+            </RoomContent>
+          );
+        })}
+
+        {/* Employment */}
+        <Door title="Employment" position={currentPosition} />
+        {education.map((job: FloorPanelType) => {
+          currentPosition = currentPosition - panelGap;
+          orientation = orientation === HangPosition.RIGHT ? HangPosition.LEFT : HangPosition.RIGHT;
+          return (
+            <RoomContent key={job.id.toString()} position={currentPosition} hang={orientation}>
+              <FloorPanel hang={orientation} title={job.title} subHeading={job.subHeading} />
+            </RoomContent>
+          );
+        })}
       </div>
     </div>
   );

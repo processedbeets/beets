@@ -6,7 +6,7 @@ import { HangPosition } from '../RoomContent/RoomContent';
 
 export type FloorPositionType = {
   hang: HangPosition;
-  text: string;
+  subHeading: string;
   title: string;
 };
 
@@ -18,7 +18,7 @@ const yellow = 'rgba(231, 225, 152, 0.61)';
 
 const colours = [red, purple, green, blue, yellow];
 
-const FloorPanel = ({ hang, title, text }: FloorPositionType) => {
+const FloorPanel = ({ hang, title, subHeading }: FloorPositionType) => {
   const random = useRef(Math.floor(Math.random() * colours.length));
   const backgroundColour = colours[random.current];
 
@@ -36,7 +36,7 @@ const FloorPanel = ({ hang, title, text }: FloorPositionType) => {
           hang === HangPosition.LEFT ? 'floor-panel__content--left' : 'floor-panel__content--right'
         }
       >
-        {text}
+        {subHeading}
       </span>
     </span>
   );

@@ -5,6 +5,7 @@ import RoomContent, { HangPosition } from '../RoomContent/RoomContent';
 
 import Door from '../Door/Door';
 import FloorPanel from '../FloorPanel/FloorPanel';
+import { FloorPanelType } from '../../types/FloorPanelType';
 import Sign from '../Sign/Sign';
 import angular from '../../images/angular.svg';
 import axios from 'axios';
@@ -16,16 +17,12 @@ import sass from '../../images/sass.svg';
 import typescript from '../../images/typescript.svg';
 import usePositionZ from '../../hooks/usePositionZ';
 
-type RecordType = {
-  id: string;
-};
-
 const Corridor = () => {
-  const [records, setRecords] = useState([]);
+  const [profiles, setProfiles] = useState([]);
 
   useEffect(() => {
-    axios.get('/api/records').then(({ data }) => {
-      setRecords(data);
+    axios.get('/api/profiles').then(({ data }) => {
+      setProfiles(data);
     });
   }, []);
 
@@ -36,6 +33,8 @@ const Corridor = () => {
   const numberOfPanels = 20;
   const panelGap = length / numberOfPanels;
   const startPosition = 200;
+  let currentPosition = startPosition;
+  let orientation = HangPosition.LEFT;
 
   return (
     <div
@@ -44,9 +43,6 @@ const Corridor = () => {
         perspectiveOrigin: `${perspectiveOrigin.x}% ${perspectiveOrigin.y}%`,
       }}
     >
-      {records.map((record: RecordType) => (
-        <li key={record.id.toString()}>record.id</li>
-      ))}
       <div
         className="corridor__walls"
         style={{
@@ -59,26 +55,24 @@ const Corridor = () => {
         <span className="corridor__walls__wall--left"></span>
         <span className="corridor__walls__wall--right"></span>
         <span className="corridor__walls__wall--back"></span>
-        <Door title="Profile" position={startPosition} />
-        <RoomContent position="95" hang={HangPosition.RIGHT}>
-          <FloorPanel hang={HangPosition.RIGHT} title="15+ years" text="industry experience" />
-        </RoomContent>
-        <RoomContent position="90" hang={HangPosition.LEFT}>
-          <FloorPanel hang={HangPosition.LEFT} title="2+ years" text="React" />
-        </RoomContent>
-        <RoomContent position="85" hang={HangPosition.RIGHT}>
-          <FloorPanel hang={HangPosition.RIGHT} title="6+ years" text="Angular" />
-        </RoomContent>
-        <RoomContent position="80" hang={HangPosition.LEFT}>
-          <FloorPanel hang={HangPosition.LEFT} title="6+ years" text="Typescript" />
-        </RoomContent>
-        <RoomContent position="75" hang={HangPosition.RIGHT}>
-          <FloorPanel
-            hang={HangPosition.RIGHT}
-            title="Microsoft Certified"
-            text="Software Engineer"
-          />
-        </RoomContent>
+        <Door title="Profile" position={currentPosition} />
+        {profiles.map((floorPanel: FloorPanelType) => {
+          currentPosition = currentPosition - panelGap;
+          orientation = orientation === HangPosition.RIGHT ? HangPosition.LEFT : HangPosition.RIGHT;
+          return (
+            <RoomContent
+              key={floorPanel.id.toString()}
+              position={currentPosition}
+              hang={orientation}
+            >
+              <FloorPanel
+                hang={orientation}
+                title={floorPanel.title}
+                subHeading={floorPanel.subHeading}
+              />
+            </RoomContent>
+          );
+        })}
         <Door title="Technologies" position="50" />
         <RoomContent position="45" hang={HangPosition.LEFT}>
           <Sign title="React">

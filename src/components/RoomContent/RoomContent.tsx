@@ -9,7 +9,7 @@ export enum HangPosition {
 }
 
 export type RoomContentType = {
-  position: string;
+  position: number | string;
   hang: HangPosition;
   children?: React.ReactNode;
 };

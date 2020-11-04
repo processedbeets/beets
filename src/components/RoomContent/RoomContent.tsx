@@ -1,26 +1,21 @@
 import './RoomContent.scss';
 
+import { Justification } from '../../types/Justification.enum';
 import React from 'react';
-
-export enum HangPosition {
-  LEFT = 'flex-start',
-  CENTRE = 'center',
-  RIGHT = 'flex-end',
-}
 
 export type RoomContentType = {
   position: number | string;
-  hang: HangPosition;
+  justification: Justification;
   children?: React.ReactNode;
 };
 
-const RoomContent = ({ position, hang, children }: RoomContentType) => {
+const RoomContent = ({ position, justification, children }: RoomContentType) => {
   return (
     <span
       className="room-content"
       style={{
         transform: `translateZ(${position}px)`,
-        justifyContent: `${hang}`,
+        justifyContent: `${justification}`,
       }}
     >
       {children}

@@ -2,10 +2,10 @@ import './FloorPanel.scss';
 
 import React, { useRef } from 'react';
 
-import { HangPosition } from '../RoomContent/RoomContent';
+import { Justification } from '../../types/Justification.enum';
 
 export type FloorPositionType = {
-  hang: HangPosition;
+  justification: Justification;
   subHeading: string;
   title: string;
 };
@@ -18,7 +18,7 @@ const yellow = 'rgba(231, 225, 152, 0.61)';
 
 const colours = [red, purple, green, blue, yellow];
 
-const FloorPanel = ({ hang, title, subHeading }: FloorPositionType) => {
+const FloorPanel = ({ justification, title, subHeading }: FloorPositionType) => {
   const random = useRef(Math.floor(Math.random() * colours.length));
   const backgroundColour = colours[random.current];
 
@@ -26,14 +26,18 @@ const FloorPanel = ({ hang, title, subHeading }: FloorPositionType) => {
     <span style={{ background: backgroundColour }} className="floor-panel">
       <p
         className={
-          hang === HangPosition.RIGHT ? 'floor-panel__title--left' : 'floor-panel__title--right'
+          justification === Justification.RIGHT
+            ? 'floor-panel__title--left'
+            : 'floor-panel__title--right'
         }
       >
         {title}
       </p>
       <span
         className={
-          hang === HangPosition.LEFT ? 'floor-panel__content--left' : 'floor-panel__content--right'
+          justification === Justification.LEFT
+            ? 'floor-panel__content--left'
+            : 'floor-panel__content--right'
         }
       >
         {subHeading}

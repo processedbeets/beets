@@ -5,7 +5,7 @@ const usePositionZ = () => {
 
   useEffect(() => {
     const listener = (event: any) => {
-      setPosition(position + event.deltaY * 0.1);
+      setPosition(position + event.deltaY * 0.02);
     };
 
     window.addEventListener('wheel', listener);

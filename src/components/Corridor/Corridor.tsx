@@ -1,13 +1,10 @@
 import './Corridor.scss';
 
 import React, { useEffect, useState } from 'react';
-import RoomContent, { HangPosition } from '../RoomContent/RoomContent';
 
-import Door from '../Door/Door';
-import FloorPanel from '../FloorPanel/FloorPanel';
-import { FloorPanelType } from '../../types/FloorPanelType';
-import Sign from '../Sign/Sign';
-import { TechnologyType } from '../../types/Technology';
+import FloorPanelRoom from '../Rooms/FloorPanelRoom/FloorPanelRoom';
+import { ISign } from '../../types/ISign';
+import SignRoom from '../Rooms/SignRoom/SignRoom';
 import angular from '../../images/angular.svg';
 import axios from 'axios';
 import ngrx from '../../images/ngrx.svg';
@@ -18,7 +15,7 @@ import sass from '../../images/sass.svg';
 import typescript from '../../images/typescript.svg';
 import usePositionZ from '../../hooks/usePositionZ';
 
-const technologies: TechnologyType[] = [
+const technologies: ISign[] = [
   {
     id: 1,
     title: 'react',
@@ -66,28 +63,25 @@ const technologies: TechnologyType[] = [
 const Corridor = () => {
   const [profiles, setProfiles] = useState([]);
   const [education, setEducation] = useState([]);
+  const [employment, setEmployment] = useState([]);
 
   useEffect(() => {
     axios.get('/api/profiles').then(({ data }) => {
       setProfiles(data);
     });
-  }, []);
 
-  useEffect(() => {
     axios.get('/api/education').then(({ data }) => {
       setEducation(data);
+    });
+
+    axios.get('/api/jobs').then(({ data }) => {
+      setEmployment(data);
     });
   }, []);
 
   let position = usePositionZ();
   //   let perspectiveOrigin = usePositionXY();
   let perspectiveOrigin = { x: 50, y: 50 };
-  const length = 400;
-  const numberOfPanels = 20;
-  const panelGap = length / numberOfPanels;
-  const startPosition = 200;
-  let currentPosition = startPosition;
-  let orientation = HangPosition.LEFT;
 
   return (
     <div
@@ -110,70 +104,36 @@ const Corridor = () => {
         <span className="corridor__walls__wall--back"></span>
 
         {/* Profiles */}
-        <Door title="Profile" position={currentPosition} />
-        {profiles.map((floorPanel: FloorPanelType) => {
-          currentPosition = currentPosition - panelGap;
-          orientation = orientation === HangPosition.RIGHT ? HangPosition.LEFT : HangPosition.RIGHT;
-          return (
-            <RoomContent
-              key={floorPanel.id.toString()}
-              position={currentPosition}
-              hang={orientation}
-            >
-              <FloorPanel
-                hang={orientation}
-                title={floorPanel.title}
-                subHeading={floorPanel.subHeading}
-              />
-            </RoomContent>
-          );
-        })}
+        <FloorPanelRoom
+          title="Profiles"
+          startPosition={200}
+          endPosition={150}
+          roomItems={profiles}
+        />
 
         {/* Technologies */}
-        <Door title="Technologies" position={currentPosition} />
-        {technologies.map((technolgy: TechnologyType) => {
-          currentPosition = currentPosition - panelGap;
-          orientation = orientation === HangPosition.RIGHT ? HangPosition.LEFT : HangPosition.RIGHT;
-          return (
-            <RoomContent position={currentPosition} hang={orientation}>
-              <Sign title={technolgy.title}>
-                <img src={technolgy.image} alt={technolgy.altText} />
-              </Sign>
-            </RoomContent>
-          );
-        })}
+        <SignRoom
+          title="Technologies"
+          startPosition={150}
+          endPosition={100}
+          roomItems={technologies}
+        />
 
         {/* Education */}
-        <Door title="Education" position={currentPosition} />
-        {education.map((attribute: FloorPanelType) => {
-          currentPosition = currentPosition - panelGap;
-          orientation = orientation === HangPosition.RIGHT ? HangPosition.LEFT : HangPosition.RIGHT;
-          return (
-            <RoomContent
-              key={attribute.id.toString()}
-              position={currentPosition}
-              hang={orientation}
-            >
-              <FloorPanel
-                hang={orientation}
-                title={attribute.title}
-                subHeading={attribute.subHeading}
-              />
-            </RoomContent>
-          );
-        })}
+        <FloorPanelRoom
+          title="Education"
+          startPosition={100}
+          endPosition={0}
+          roomItems={education}
+        />
 
         {/* Employment */}
-        <Door title="Employment" position={currentPosition} />
-        {education.map((job: FloorPanelType) => {
-          currentPosition = currentPosition - panelGap;
-          orientation = orientation === HangPosition.RIGHT ? HangPosition.LEFT : HangPosition.RIGHT;
-          return (
-            <RoomContent key={job.id.toString()} position={currentPosition} hang={orientation}>
-              <FloorPanel hang={orientation} title={job.title} subHeading={job.subHeading} />
-            </RoomContent>
-          );
-        })}
+        <FloorPanelRoom
+          title="Employment"
+          startPosition={0}
+          endPosition={-100}
+          roomItems={employment}
+        />
       </div>
     </div>
   );

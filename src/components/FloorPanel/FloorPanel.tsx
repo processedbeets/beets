@@ -15,12 +15,21 @@ const colours = [red, purple, green, blue, yellow];
 
 export type FloorPanelDetail = IFloorPanel & { justification: Justification };
 
-const FloorPanel = ({ justification, title, subHeading, superHeading }: FloorPanelDetail) => {
+const FloorPanel = ({
+  justification,
+  title,
+  subHeading,
+  superHeading,
+  content,
+}: FloorPanelDetail) => {
   const random = useRef(Math.floor(Math.random() * colours.length));
   const backgroundColour = colours[random.current];
+  let showContent = useRef(false);
 
   return (
     <span style={{ background: backgroundColour }} className="floor-panel">
+      <button onClick={() => (showContent.current = !showContent.current)}>show</button>
+      {showContent && <ul>{content && content.map((detail) => <li>{detail}</li>)}</ul>}
       {superHeading && (
         <span
           className={

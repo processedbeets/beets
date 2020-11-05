@@ -32,6 +32,7 @@ const FloorPanelRoom = ({ title, roomItems, startPosition, endPosition }: IRoom<
               title={floorPanel.title}
               subHeading={floorPanel.subHeading}
               superHeading={floorPanel.superHeading}
+              content={floorPanel.content}
             />
           </RoomContent>
         );

@@ -27,9 +27,11 @@ const FloorPanelRoom = ({ title, roomItems, startPosition, endPosition }: IRoom<
             justification={justification}
           >
             <FloorPanel
+              id={floorPanel.id}
               justification={justification}
               title={floorPanel.title}
               subHeading={floorPanel.subHeading}
+              superHeading={floorPanel.superHeading}
             />
           </RoomContent>
         );

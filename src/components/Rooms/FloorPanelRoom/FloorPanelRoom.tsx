@@ -9,8 +9,8 @@ import RoomContent from '../../RoomContent/RoomContent';
 const FloorPanelRoom = ({ title, roomItems, startPosition, endPosition }: IRoom<IFloorPanel>) => {
   const length = startPosition - endPosition;
   const numberOfPanels = roomItems.length;
-  const panelGap = length / numberOfPanels;
-  let currentPosition = startPosition - panelGap;
+  const panelGap = Math.floor(length / numberOfPanels);
+  let currentPosition = startPosition;
   let justification = Justification.LEFT;
 
   return (

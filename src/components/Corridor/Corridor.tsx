@@ -180,7 +180,7 @@ const Corridor = () => {
         <FloorPanelRoom
           title="Employment"
           startPosition={0}
-          endPosition={-100}
+          endPosition={-200}
           roomItems={employment}
         />
       </div>

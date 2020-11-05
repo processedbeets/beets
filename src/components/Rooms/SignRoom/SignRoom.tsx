@@ -9,8 +9,8 @@ import Sign from '../../Sign/Sign';
 const SignRoom = ({ roomItems, title, startPosition, endPosition }: IRoom<ISign>) => {
   const length = startPosition - endPosition;
   const numberOfPanels = roomItems.length;
-  const panelGap = length / numberOfPanels;
-  let currentPosition = startPosition - panelGap;
+  const panelGap = Math.floor(length / numberOfPanels);
+  let currentPosition = startPosition;
   let orientation = Justification.LEFT;
 
   return (

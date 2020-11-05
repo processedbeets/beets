@@ -7,11 +7,18 @@ import { ISign } from '../../types/ISign';
 import SignRoom from '../Rooms/SignRoom/SignRoom';
 import angular from '../../images/angular.svg';
 import axios from 'axios';
+import azure from '../../images/azure.svg';
+import core from '../../images/core.svg';
+import css from '../../images/css.svg';
+import html from '../../images/html.svg';
+import js from '../../images/js.svg';
 import ngrx from '../../images/ngrx.svg';
+import node from '../../images/node.svg';
 import react from '../../images/react.svg';
 import redux from '../../images/redux.svg';
 import rxjs from '../../images/rxjs.svg';
 import sass from '../../images/sass.svg';
+import sql from '../../images/sql.svg';
 import typescript from '../../images/typescript.svg';
 import usePositionZ from '../../hooks/usePositionZ';
 
@@ -57,6 +64,48 @@ const technologies: ISign[] = [
     title: 'ngrx',
     image: ngrx,
     altText: 'A purple dragon circling back on itself in front of a black shield',
+  },
+  {
+    id: 8,
+    title: 'Javascript',
+    image: js,
+    altText: 'A purple dragon circling back on itself in front of a black shield',
+  },
+  {
+    id: 9,
+    title: 'Html',
+    image: html,
+    altText: 'A purple dragon circling back on itself in front of a black shield',
+  },
+  {
+    id: 10,
+    title: 'Css',
+    image: css,
+    altText: 'A purple dragon circling back on itself in front of a black shield',
+  },
+  {
+    id: 10,
+    title: 'Node Js',
+    image: node,
+    altText: 'A purple dragon circling back on itself in front of a black shield',
+  },
+  {
+    id: 8,
+    title: '.net core',
+    image: core,
+    altText: 'A purple circle with the words ".net core" in it',
+  },
+  {
+    id: 9,
+    title: 'Azure',
+    image: azure,
+    altText: 'A blue triangle',
+  },
+  {
+    id: 10,
+    title: 'MS Sql',
+    image: sql,
+    altText: 'A grid folded over like a helix with the words "sql server"',
   },
 ];
 

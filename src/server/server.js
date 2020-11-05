@@ -29,7 +29,22 @@ let profiles = [
   {
     id: '5',
     title: 'Microsoft Certified',
-    subHeading: 'Software Engineer',
+  },
+  {
+    id: '5',
+    title: 'Web Developer',
+  },
+  {
+    id: '5',
+    title: 'Team Lead',
+  },
+  {
+    id: '5',
+    title: 'Systems Architect',
+  },
+  {
+    id: '5',
+    title: 'UX',
   },
 ];
 
@@ -39,6 +54,18 @@ const education = [
     title: 'Bsc Hons. 2:1',
     subHeading: 'Computing Science',
     superHeading: 'Glasgow University'
+  },
+   {
+    id: '1',
+    title: 'A, B',
+    subHeading: 'Maths, Physics',
+    superHeading: 'Scottish Advanced Highers'
+  },
+   {
+    id: '1',
+    title: 'A * 5 | B * 1',
+    subHeading: 'STEM & English',
+    superHeading: 'Scottish Highers'
   },
    {
     id: '1',
@@ -57,6 +84,42 @@ const education = [
     title: 'Typescript Master',
     subHeading: '2019',
     superHeading: 'Ultimate Courses'
+  },
+   {
+    id: '1',
+    title: 'WCF with .Net',
+    subHeading: '2013',
+    superHeading: 'Microsoft Certification'
+  },
+   {
+    id: '1',
+    title: 'Accessing Data with .Net',
+    subHeading: '2012',
+    superHeading: 'Microsoft Certification'
+  },
+   {
+    id: '1',
+    title: 'Web Applications Development',
+    subHeading: '2011',
+    superHeading: 'Microsoft Certification'
+  },
+   {
+    id: '1',
+    title: 'WPF Applications Development',
+    subHeading: '2011',
+    superHeading: 'Microsoft Certification'
+  },
+   {
+    id: '1',
+    title: 'Applications Development Foundation',
+    subHeading: '2011',
+    superHeading: 'Microsoft Certification'
+  },
+   {
+    id: '1',
+    title: '.Net Programming',
+    subHeading: '2011',
+    superHeading: 'Microsoft Certification'
   },
 ]
 

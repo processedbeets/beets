@@ -13,7 +13,9 @@ const yellow = 'rgba(231, 225, 152, 0.61)';
 
 const colours = [red, purple, green, blue, yellow];
 
-const FloorPanel = ({ justification, title, subHeading, superHeading }: IFloorPanel) => {
+export type FloorPanelDetail = IFloorPanel & { justification: Justification };
+
+const FloorPanel = ({ justification, title, subHeading, superHeading }: FloorPanelDetail) => {
   const random = useRef(Math.floor(Math.random() * colours.length));
   const backgroundColour = colours[random.current];
 
@@ -23,8 +25,8 @@ const FloorPanel = ({ justification, title, subHeading, superHeading }: IFloorPa
         <span
           className={
             justification === Justification.LEFT
-              ? 'floor-panel__content--left'
-              : 'floor-panel__content--right'
+              ? 'floor-panel__heading--left'
+              : 'floor-panel__heading--right'
           }
         >
           {superHeading}

@@ -1,3 +1,4 @@
+$superHeadingText: rgb(73, 73, 73);
 $floorPanelText: #373737;
 $titleText: white;
 $titleBackground: rgba(105, 105, 105, 0.8);
@@ -6,7 +7,7 @@ $titleBackground: rgba(105, 105, 105, 0.8);
   color: $floorPanelText;
   opacity: 1;
   padding: 4px;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   align-self: flex-end;
   justify-self: center;
   display: flex;
@@ -25,6 +26,7 @@ $titleBackground: rgba(105, 105, 105, 0.8);
     color: $titleText;
     align-self: center;
     width: 100%;
+    font-size: 0.5rem;
   }
 
   &__title--left {
@@ -50,6 +52,22 @@ $titleBackground: rgba(105, 105, 105, 0.8);
 
   &__content--right {
     @extend %content;
+    text-align: right;
+  }
+
+  %heading {
+    width: 100%;
+    color: $superHeadingText;
+    font-family: 'TelegrafRegular';
+  }
+
+  &__heading--left {
+    @extend %heading;
+    text-align: left;
+  }
+
+  &__heading--right {
+    @extend %heading;
     text-align: right;
   }
 }

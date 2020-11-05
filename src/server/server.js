@@ -126,29 +126,71 @@ const education = [
 const jobs = [
    {
     id: '1',
-    title: '15+ years',
-    subHeading: 'industry experience',
+    title: 'Processed Beets',
+    subHeading: `Jun '19 - Oct '19 Sep '20...`,
+    superHeading: 'Contract Frontend Developer'
   },
-  {
+   {
     id: '2',
-    title: '2+ years',
-    subHeading: 'React',
+    title: 'Screenmedia',
+    subHeading: `Jan '19 - Jun '19 Oct '19 - Sep '20`,
+    superHeading: 'Contract Frontend Developer'
   },
-  {
+   {
     id: '3',
-    title: '6+ years',
-    subHeading: 'Angular',
+    title: `Aggreko`,
+    subHeading: `Oct '18 - Jan '19`,
+    superHeading: 'Contract Web Developer'
   },
-  {
+   {
     id: '4',
-    title: '6+ years',
-    subHeading: 'Typescript',
+    title: `Usepaq`,
+    superHeading: 'Contract Architect, Lead Dev, & Project Manager',
+    subHeading: `Apr '17 - Oct '17`
   },
-  {
+   {
     id: '5',
-    title: 'Microsoft Certified',
-    subHeading: 'Software Engineer',
+    title: `City Facilities Management`,
+    superHeading: 'Contract Web Developer',
+    subHeading: `Apr '16 - Apr '17`
   },
+   {
+    id: '6',
+    title: `Coder Dojo Scotland`,
+    superHeading: 'Volunteer Mentor',
+    subHeading: `Mar '15 - Mar '17`
+  },
+   {
+    id: '7',
+    title: `Genentech`,
+    superHeading: 'Contract Web Developer',
+    subHeading: `Oct '14 - Mar '16`
+  },
+   {
+    id: '8',
+    title: `Smart Metering Systems`,
+    superHeading: 'Senior Software Engineer',
+    subHeading: `Jul '13 - Nov '14`
+  },
+   {
+    id: '9',
+    title: `Objective Associates`,
+    superHeading: 'Senior Software Engineer',
+    subHeading: `Nov '11 - Jul '13`
+  },
+   {
+    id: '10',
+    title: `Response / Inisoft`,
+    superHeading: 'Software Engineer',
+    subHeading: `Jan '09 - Nov '11`
+  },
+   {
+    id: '11',
+    title: `The Solutionworks`,
+    superHeading: 'Software Engineer',
+    subHeading: `Jun '05 - Jan '09`
+  },
+
 ]
 
 

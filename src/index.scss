@@ -5,6 +5,11 @@
   src: url('./fonts/Telegraf-UltraLight.otf') format('opentype');
 }
 
+@font-face {
+  font-family: TelegrafRegular;
+  src: url('./fonts/Telegraf-Regular.otf') format('opentype');
+}
+
 :root {
   --grid-cell-size: 3vw;
   --grid-line-width: 1px;

@@ -1,17 +1,19 @@
 import './FloorPanel.scss';
 
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 
 import { IFloorPanel } from '../../types/IFloorPanel';
 import { Justification } from '../../types/Justification.enum';
 
-const red = 'rgba(223, 170, 170, 0.61)';
-const purple = 'rgba(223, 170, 223, 0.61)';
-const green = 'rgba(178, 223, 170, 0.61)';
-const blue = 'rgba(137, 154, 210, 0.61)';
-const yellow = 'rgba(231, 225, 152, 0.61)';
+const red = 'rgba(223, 170, 170)';
+const purple = 'rgba(223, 170, 223)';
+const green = 'rgba(178, 223, 170)';
+const blue = 'rgba(137, 154, 210)';
+// const yellow = 'rgba(231, 225, 152, 0.61)';
+const yellow = 'rgba(237, 198, 0)';
+const orange = 'rgb(231, 166, 17)';
 
-const colours = [red, purple, green, blue, yellow];
+const colours = [red, purple, green, blue, yellow, orange];
 
 export type FloorPanelDetail = IFloorPanel & { justification: Justification };
 
@@ -24,13 +26,35 @@ const FloorPanel = ({
 }: FloorPanelDetail) => {
   const random = useRef(Math.floor(Math.random() * colours.length));
   const backgroundColour = colours[random.current];
-  let showContent = useRef(false);
+  const [showContent, setShowContent] = useState(false);
 
   return (
-    <span style={{ background: backgroundColour }} className="floor-panel">
-      <button onClick={() => (showContent.current = !showContent.current)}>show</button>
-      {showContent && <ul>{content && content.map((detail) => <li>{detail}</li>)}</ul>}
-      {superHeading && (
+    <span
+      onClick={() => {
+        content && setShowContent(!showContent);
+      }}
+      style={{
+        background: backgroundColour,
+        width: `${showContent ? 100 : 40}%`,
+        height: `${showContent ? 90 : 60}%`,
+      }}
+      // className={['floor-panel', showContent ? 'floor-panel--flip' : ''].join()}
+      className="poster"
+    >
+      {showContent && (
+        <ul className="floor-panel__content">
+          {content && content.map((detail) => <li>{detail}</li>)}
+        </ul>
+      )}
+      {/* {content && (
+        <button
+          className="floor-panel--toggle-content"
+          onClick={() => {
+            setShowContent(!showContent);
+          }}
+        ></button>
+      )} */}
+      {/* {superHeading && (
         <span
           className={
             justification === Justification.LEFT
@@ -40,7 +64,7 @@ const FloorPanel = ({
         >
           {superHeading}
         </span>
-      )}
+      )} */}
       <p
         className={
           justification === Justification.RIGHT
@@ -53,8 +77,8 @@ const FloorPanel = ({
       <span
         className={
           justification === Justification.LEFT
-            ? 'floor-panel__content--left'
-            : 'floor-panel__content--right'
+            ? 'floor-panel__subheading--left'
+            : 'floor-panel__subheading--right'
         }
       >
         {subHeading}

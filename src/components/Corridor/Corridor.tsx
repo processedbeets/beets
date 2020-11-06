@@ -10,6 +10,7 @@ import axios from 'axios';
 import azure from '../../images/azure.svg';
 import core from '../../images/core.svg';
 import css from '../../images/css.svg';
+import exit from '../../images/exit.svg';
 import html from '../../images/html.svg';
 import js from '../../images/js.svg';
 import ngrx from '../../images/ngrx.svg';
@@ -90,19 +91,19 @@ const technologies: ISign[] = [
     altText: 'A purple dragon circling back on itself in front of a black shield',
   },
   {
-    id: 8,
+    id: 11,
     title: '.net core',
     image: core,
     altText: 'A purple circle with the words ".net core" in it',
   },
   {
-    id: 9,
+    id: 12,
     title: 'Azure',
     image: azure,
     altText: 'A blue triangle',
   },
   {
-    id: 10,
+    id: 13,
     title: 'MS Sql',
     image: sql,
     altText: 'A grid folded over like a helix with the words "sql server"',
@@ -150,7 +151,9 @@ const Corridor = () => {
         <span className="corridor__walls__wall--bottom"></span>
         <span className="corridor__walls__wall--left"></span>
         <span className="corridor__walls__wall--right"></span>
-        <span className="corridor__walls__wall--back"></span>
+        <span className="corridor__walls__wall--back">
+          <img className="fire-exit" src={exit}></img>
+        </span>
 
         {/* Profiles */}
         <FloorPanelRoom

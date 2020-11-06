@@ -14,12 +14,14 @@ $door-colour: rgba(182, 41, 129, 0.59);
   // );
   background-color: $door-colour;
   border: none;
+  overflow: hidden;
 
   h1 {
     position: relative;
-    top: -2rem;
-    font-size: medium;
+    // top: -2rem;
+    // font-size: medium;
     margin: 0;
+    word-break: break-all;
     // animation: neon 4s infinite ease-in-out;
   }
 }

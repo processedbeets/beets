@@ -36,7 +36,7 @@ const FloorPanel = ({
       style={{
         background: backgroundColour,
         width: `${showContent ? 100 : 40}%`,
-        height: `${showContent ? 90 : 60}%`,
+        height: `${showContent ? 100 : 60}%`,
       }}
       // className={['floor-panel', showContent ? 'floor-panel--flip' : ''].join()}
       className="poster"

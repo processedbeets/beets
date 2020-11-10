@@ -152,36 +152,26 @@ const Corridor = () => {
         <span className="corridor__walls__wall--left"></span>
         <span className="corridor__walls__wall--right"></span>
         <span className="corridor__walls__wall--back">
-          <img className="fire-exit" src={exit}></img>
+          <img className="fire-exit" src={exit} alt="Person running towards door to escape"></img>
         </span>
 
         {/* Profiles */}
         <FloorPanelRoom
-          title="Profiles"
+          title="Profile"
           startPosition={200}
           endPosition={150}
           roomItems={profiles}
         />
 
         {/* Technologies */}
-        <SignRoom
-          title="Technologies"
-          startPosition={150}
-          endPosition={100}
-          roomItems={technologies}
-        />
+        <SignRoom title="Tech" startPosition={150} endPosition={100} roomItems={technologies} />
 
         {/* Education */}
-        <FloorPanelRoom
-          title="Education"
-          startPosition={100}
-          endPosition={0}
-          roomItems={education}
-        />
+        <FloorPanelRoom title="Educate" startPosition={100} endPosition={0} roomItems={education} />
 
         {/* Employment */}
         <FloorPanelRoom
-          title="Employment"
+          title="Employ"
           startPosition={0}
           endPosition={-200}
           roomItems={employment}

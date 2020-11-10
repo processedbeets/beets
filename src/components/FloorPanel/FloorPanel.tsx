@@ -38,31 +38,26 @@ const FloorPanel = ({
         width: `${showContent ? 100 : 40}%`,
         height: `${showContent ? 100 : 60}%`,
       }}
-      // className={['floor-panel', showContent ? 'floor-panel--flip' : ''].join()}
+      // className={['poster', showContent ? 'poster--expand' : ''].join(' ')}
       className="poster"
     >
-      {showContent && (
-        <ul className="floor-panel__content">
-          {content && content.map((detail) => <li>{detail}</li>)}
-        </ul>
-      )}
       {/* {content && (
         <button
-          className="floor-panel--toggle-content"
-          onClick={() => {
-            setShowContent(!showContent);
-          }}
+        className="floor-panel--toggle-content"
+        onClick={() => {
+          setShowContent(!showContent);
+        }}
         ></button>
       )} */}
       {/* {superHeading && (
         <span
-          className={
-            justification === Justification.LEFT
-              ? 'floor-panel__heading--left'
-              : 'floor-panel__heading--right'
-          }
+        className={
+          justification === Justification.LEFT
+          ? 'floor-panel__heading--left'
+          : 'floor-panel__heading--right'
+        }
         >
-          {superHeading}
+        {superHeading}
         </span>
       )} */}
       <p
@@ -83,6 +78,11 @@ const FloorPanel = ({
       >
         {subHeading}
       </span>
+      {showContent && (
+        <ul className={showContent ? 'floor-panel__content--expand' : 'floor-panel__content'}>
+          {content && content.map((detail) => <li>{detail}</li>)}
+        </ul>
+      )}
     </span>
   );
 };

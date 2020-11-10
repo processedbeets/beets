@@ -46,6 +46,14 @@ let profiles = [
     id: '9',
     title: 'UX',
   },
+  {
+    id: '10',
+    title: 'Strengthen teams through knowledge sharing',
+  },
+  {
+    id: '11',
+    title: 'Maintainability through simplicity',
+  },
 ];
 
 const education = [
@@ -142,6 +150,7 @@ const jobs = [
       `Introduced 90%+ code-coverage`,
       `Animated UX`,
       `Created code-walkthrough videos for on-boarding`,
+      `Introduced efficient peer review process`,
     ],
   },
   {
@@ -211,6 +220,7 @@ const jobs = [
       `Encourage kids through technology`,
       `Fortnightly sessions - Raspberry Pi, Python, & Unity`,
       `Run workshops at schools`,
+      `Required to explain complex computing ideas to kids`,
     ],
   },
   {

@@ -49,17 +49,19 @@ const FloorPanel = ({
         }}
         ></button>
       )} */}
-      {/* {superHeading && (
-        <span
-        className={
-          justification === Justification.LEFT
-          ? 'floor-panel__heading--left'
-          : 'floor-panel__heading--right'
-        }
-        >
-        {superHeading}
-        </span>
-      )} */}
+      {superHeading && showContent && (
+        <div className="floor-panel__heading__wrapper">
+          <span
+            className={
+              justification === Justification.LEFT
+                ? 'floor-panel__heading--left'
+                : 'floor-panel__heading--right'
+            }
+          >
+            {superHeading}
+          </span>
+        </div>
+      )}
       <p
         className={
           justification === Justification.RIGHT
@@ -79,9 +81,11 @@ const FloorPanel = ({
         {subHeading}
       </span>
       {showContent && (
-        <ul className={showContent ? 'floor-panel__content--expand' : 'floor-panel__content'}>
-          {content && content.map((detail) => <li>{detail}</li>)}
-        </ul>
+        <div className="floor-panel__content__wrapper">
+          <ul className={'floor-panel__content'}>
+            {content && content.map((detail) => <li>{detail}</li>)}
+          </ul>
+        </div>
       )}
     </span>
   );
